@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 
-	"github.com/yubing744/hebbian-net/pkg"
+	"github.com/yubing744/hebbian-net/pkg/model"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 	numIterations := 100
 
 	// 初始化神经网络
-	network := pkg.NewNetwork(numModules, numNeurons, inputSize)
+	network := model.NewNetwork(numModules, numNeurons, inputSize, learningRate)
 
 	// 无监督学习过程
 	for iter := 0; iter < numIterations; iter++ {
@@ -29,10 +29,10 @@ func main() {
 			inputs[i] = input
 		}
 
-		pkg.Learning(network, inputs, learningRate, false)
+		network.Learn(inputs, false)
 	}
 
 	// 预测
-	output := pkg.Predict(network)
+	output := network.GetOutput(0)
 	fmt.Printf("%v", output)
 }
