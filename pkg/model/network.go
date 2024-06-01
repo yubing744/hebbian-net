@@ -55,7 +55,7 @@ func (network *NeuralNetwork) GetOutput(index int) []float64 {
 	for i, neuron := range module.neurons {
 		sum := 0.0
 		for _, prevNeuron := range network.modules[len(network.modules)-1].neurons {
-			sum += prevNeuron.value * neuron.weights[i]
+			sum += prevNeuron.Value * neuron.Weights[i]
 		}
 		outputValues[i] = utils.Sigmoid(sum)
 	}

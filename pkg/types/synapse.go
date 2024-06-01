@@ -1,17 +1,17 @@
-package model
+package types
 
 // 突触结构体
 type Synapse struct {
-	from   *Neuron
-	to     *Neuron
-	weight float64
+	From   *Neuron
+	To     *Neuron
+	Weight float64
 }
 
 // 创建突出链接
 func NewSynapse(from *Neuron, to *Neuron, weight float64) *Synapse {
 	return &Synapse{
-		from:   from,
-		to:     to,
-		weight: weight,
+		From:   from,
+		To:     to,
+		Weight: weight,
 	}
 }
